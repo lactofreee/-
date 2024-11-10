@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: #212121;
+        color: whitesmoke;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button class="tab" data-target="tab1">탭 1</button>
+      <button class="tab" data-target="tab2">탭 2</button>
+    </div>
+    <div id="tab1" class="tab-content" style="display: none"></div>
+    <div id="tab2" class="tab-content" style="display: none"></div>
+    <script defer>
+      const btn1 = document.querySelectorAll(".tab")[0];
+      const btn2 = document.querySelectorAll(".tab")[1];
+      const tab1 = document.querySelector("#tab1");
+      const tab2 = document.querySelector("#tab2");
+      btn1.addEventListener("click", () => {
+        tab1.textContent = "내용이 추가된 tab1";
+        tab2.style.display = "none";
+        tab1.style.display = "block";
+      });
+
+      btn2.addEventListener("click", () => {
+        tab2.textContent = "내용이 추가된 tab2";
+        tab1.style.display = "none";
+        tab2.style.display = "block";
+      });
+    </script>
+  </body>
+</html>

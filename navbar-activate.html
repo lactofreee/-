@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+      }
+      body {
+        display: flex;
+        background-color: #212121;
+        color: whitesmoke;
+      }
+      .active {
+        color: red;
+      }
+      .nav-item {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="nav" class="nav">
+      <li id="new-item1" class="nav-item">홈</li>
+      <li id="new-item2" class="nav-item">서비스</li>
+      <li id="new-item3" class="nav-item">연락처</li>
+    </ul>
+    <script defer>
+      const nav = document.getElementById("nav");
+      nav.addEventListener("click", (e) => {
+        if (e.target.classList.contains("nav-item")) {
+          const actuvatedItem = nav.querySelector(".active");
+          if (actuvatedItem) actuvatedItem.classList.remove("active");
+          e.target.classList.add("active");
+        }
+      });
+    </script>
+  </body>
+</html>

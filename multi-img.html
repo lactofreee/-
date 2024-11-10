@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multiple File Input Example</title>
+    <style>
+      body {
+        background-color: #212121;
+        color: whitesmoke;
+      }
+      .preview {
+        max-width: 150px;
+        margin: 10px;
+      }
+      .selected-img {
+        height: 100px;
+        width: 100px;
+      }
+      .preview-container {
+        display: flex;
+        gap: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="file" id="fileInput" multiple />
+    <div id="fileInfo" class="preview-container"></div>
+
+    <script>
+      const fileInput = document.getElementById("fileInput");
+      const fileInfo = document.getElementById("fileInfo");
+      fileInput.addEventListener("change", (e) => {
+        const files = e.target.files;
+        Array.from(files, (file) => {
+          const imgurl = URL.createObjectURL(file);
+          const img = document.createElement("img");
+          img.classList.add("selected-img");
+          img.src = imgurl;
+          fileInfo.appendChild(img);
+        });
+      });
+    </script>
+  </body>
+</html>

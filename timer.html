@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: #212121;
+        color: whitesmoke;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="startTimerButton">타이머 시작</button>
+    <div id="timerDisplay">10</div>
+    <script defer>
+      const startBtn = document.getElementById("startTimerButton");
+      const timerDisplay = document.getElementById("timerDisplay");
+
+      startBtn.addEventListener("click", () => {
+        let count = 10;
+        startBtn.disabled = true;
+
+        const countDown = setInterval(() => {
+          if (count > 0) {
+            timerDisplay.textContent = --count;
+          } else {
+            clearInterval(countDown);
+            alert("카운트가 종료되었습니다.");
+            startBtn.disabled = false;
+          }
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>
